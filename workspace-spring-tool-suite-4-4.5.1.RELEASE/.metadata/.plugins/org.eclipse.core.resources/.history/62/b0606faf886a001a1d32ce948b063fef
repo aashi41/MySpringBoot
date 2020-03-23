@@ -1,0 +1,39 @@
+package com.example.demo1.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo1.entity.Employee;
+
+@RestController
+public class BaseController {
+	
+	@Autowired
+	Employee emp;
+	
+	@RequestMapping("/hello")
+	public String sayHi() {
+		return "Hiiiiiiiiiiiiiiiiiiiiiii";
+	}
+	
+	@RequestMapping("/empInfo")
+	public Employee employeeInfo() {
+		emp.setEid(1);
+		emp.setEname("aish");
+		return emp;
+	}
+	
+	@RequestMapping("/home")
+	@ResponseBody
+	public String HomeJsp() {
+		return "home.jsp";
+	}
+	
+	
+	
+	
+
+}
+
